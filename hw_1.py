@@ -5,14 +5,17 @@ import random
 lst = ['robot'] * 10
 lst += ['human'] * 10
 random.shuffle(lst)
-data = pd.DataFrame({'whoami': lst})
+data = pd.DataFrame({'whoaMi': lst})
 print(data)
  
 print('')
 
 data['tmp'] = 1
-data.set_index([data.index, 'whoami'], inplace=True)
+data.set_index([data.index, 'whoaMi'], inplace=True)
 data = data.unstack(level=-1, fill_value = 0).astype(int)
 data.columns = data.columns.droplevel()
 data.columns.name = None
 print(data)
+
+
+
